@@ -1,0 +1,17 @@
+{
+  "name": "board",
+  "version": "0.0.0",
+  "description": "電算部掲示板",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "mongoose": "~3.8.3",
+    "express": "~3.4.7",
+    "connect-mongo": "~0.4.0",
+    "hogan-express": "~0.5.2"
+  }
+}

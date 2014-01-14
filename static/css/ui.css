@@ -1,0 +1,18 @@
+h2{
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #888888;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:link { color: #0066ff; }
+a:visited { color: #006600; }
+a:active { color: #0066ff; }
+
+#menu{
+	text-align: center;
+}

@@ -7,8 +7,21 @@
 	</head>
 
 	<body>
-		<h1>掲示板<h1>
-		<p>内容<p>
+		<h2>電算部員専用掲示板</h2>
+		<div id="menu">
+			<a href="/new">新規発言</a> | 
+			<a href="/">一覧</a> | 
+			<a href="/newlogs">最新記事</a>
+		</div>
+		<form method="post">
+		名前<input type="text" name="name"><br>
+		題名<input type="text" name="title"><br>
+		発言<input type="text" name="remark"><br>
+		書き込む<input type="submit" value="書き込む"><br>
+		<span>{{ name }}</span><br>
+		<span>{{ title }}</span><br>
+		<span>{{ remark }}</span><br>
+		<hr>
 		<script src="/js/jquery.js"></script>
 		<script src="/js/ui.js"></script>
 	</body>

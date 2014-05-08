@@ -16,6 +16,10 @@ function QuoteSymbol(quote){
 	return "> " + quote.replace(/<br>/g,"\r\n> ");
 }
 
+function ZeroPadding(n){
+	return (String(n).length<2 ? "0"+n : String(n));
+}
+
 module.exports = function(){
 	
 	this.get("/",function(req,res){
@@ -33,10 +37,19 @@ module.exports = function(){
 	});*/
 
 	this.get("/log/:id",function(req,res){
-		models.Board.find({numb:req.params.id},function(err,item){
+		models.Board.findOne({numb:req.params.id},function(err,item){
+			item = JSON.parse(JSON.stringify(item));
+			var fulltime = new Date(item.time);
+			item.time = {
+				_year:fulltime.getFullYear(),
+				_month:ZeroPadding(fulltime.getMonth()+1),
+				_day:ZeroPadding(fulltime.getDate()),
+				_hour:ZeroPadding(fulltime.getHours()),
+				_minute:ZeroPadding(fulltime.getMinutes())
+			};
 			res.render("log",{
 				item:item,
-				quote:QuoteSymbol(item[0].remark),
+				quote:QuoteSymbol(item.remark),
 				quote_flag:(req.query.hen==1?true:false)
 			});
 		});

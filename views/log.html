@@ -46,30 +46,28 @@
 		</div>
 		<hr>
 		<div id="re_sub">
-			<table>
-				{{#item}}
-				<tr>
-					<td>返信フォーム</td>
-					<td>　[<a href="{{numb}}?hen=1#re_sub">引用</a>]</td>
-				</tr>
-				<form method="post">
-
-				<tr>
-					<td bgcolor="#E0E0E0">名　前</td><td><input type="text" size="30" name="name"></td>
-				</tr>
-				<tr>
-					<td bgcolor="#E0E0E0">題　名</td><td><input type="text" size="40" name="title" value="Re:{{title}}"></td>
-				</tr>
-				<tr>
-					<td bgcolor="#E0E0E0">発　言</td><td><textarea name=remark rows=10 cols=55>{{#quote_flag}}{{quote}}{{/quote_flag}}</textarea></td>
-				</tr>
-				<tr>
-					<td bgcolor="#E0E0E0">書き込む</td><td><input type="submit" value="書き込む"></td>
-				</tr>
-
-				</form>
-				{{/item}}
-			</table>
+			<form method="post">
+				<table>
+					{{#item}}
+					<tr>
+						<td>返信フォーム</td>
+						<td>　[<a href="{{numb}}?hen=1#re_sub">引用</a>]</td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">名　前</td><td><input type="text" size="30" name="name"></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">題　名</td><td><input type="text" size="40" name="title" value="Re:{{title}}"></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">発　言</td><td><textarea name=remark rows=10 cols=55>{{#quote_flag}}{{quote}}{{/quote_flag}}</textarea></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">書き込む</td><td><input type="submit" value="書き込む"></td>
+					</tr>
+					{{/item}}
+				</table>
+			</form>
 		</div>
 		<hr>
 		<script src="/js/jquery.js"></script>

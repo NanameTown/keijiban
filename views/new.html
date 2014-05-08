@@ -18,52 +18,50 @@
 		</div>
 		<hr>
 		<div id="submission">
-			<table>
-				<tr>
-					<td>発言フォーム</td>
-				</tr>
-				<form method="post">
-
-				<tr>
-					<td bgcolor="#E0E0E0">名前</td><td><input type="text" size="30" name="name"></td>
-				</tr>
-				<tr>
-					<td bgcolor="#E0E0E0">題名</td><td><input type="text" size="40" name="title"></td>
-				</tr>
-				<tr>
-					<td bgcolor="#E0E0E0">発言</td><td><textarea name=remark rows=10 cols=55></textarea></td>
-				</tr>
-				<tr>
-					<td bgcolor="#E0E0E0">PASSWORD</td><td><input type="password" size="12" name="pw"></td>
-				</tr>
-				<tr>
-					<td bgcolor="#E0E0E0">発言種類</td>
-					<td>
-						<select name=select>
-							<option value="">(選択)</option>
-							<option value="質問">質問</option>
-							<option value="ミッション">ミッション</option>
-							<option value="参考">参考</option>
-							<option value="訂正">訂正</option>
-							<option value="重要">重要</option>
-							<option value="返事">返事</option>
-							<option value="突込">突込</option>
-							<option value="ボケ">ボケ</option>
-							<option value="要望">要望</option>
-							<option value="情報">情報</option>
-							<option value="愛">愛</option>
-							<option value="必死">必死</option>
-							<option value="苦情">苦情</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td bgcolor="#E0E0E0">書き込む</td>
-					<td><input type="submit" value="　書き込む　"><input type="reset" value="　書き直し　"></td>
-				</tr>
-
-				</form>
-			</table>
+			<form method="post">
+				<table>
+					<tr>
+						<td>発言フォーム</td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">名前</td><td><input type="text" size="30" name="name"></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">題名</td><td><input type="text" size="40" name="title"></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">発言</td><td><textarea name=remark rows=10 cols=55></textarea></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">PASSWORD</td><td><input type="password" size="12" name="pw"></td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">発言種類</td>
+						<td>
+							<select name=select>
+								<option value="">(選択)</option>
+								<option value="質問">質問</option>
+								<option value="ミッション">ミッション</option>
+								<option value="参考">参考</option>
+								<option value="訂正">訂正</option>
+								<option value="重要">重要</option>
+								<option value="返事">返事</option>
+								<option value="突込">突込</option>
+								<option value="ボケ">ボケ</option>
+								<option value="要望">要望</option>
+								<option value="情報">情報</option>
+								<option value="愛">愛</option>
+								<option value="必死">必死</option>
+								<option value="苦情">苦情</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#E0E0E0">書き込む</td>
+						<td><input type="submit" value="　書き込む　"><input type="reset" value="　書き直し　"></td>
+					</tr>
+				</table>
+			</form>
 		</div>
 		<hr>
 		<script src="/js/jquery.js"></script>

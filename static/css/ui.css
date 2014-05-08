@@ -1,8 +1,17 @@
+body{
+	color: #888888;
+	font-family:'Lucida Grande','Hiragino Kaku Gothic ProN',Meiryo, sans-serif;
+}
+
 h2{
+	margin-top:0px;
 	font-size: 1.5em;
 	font-weight: bold;
-	color: #888888;
 	text-align: center;
+}
+
+hr{
+	width:500px;
 }
 
 a{
@@ -13,6 +22,92 @@ a:link { color: #0066ff; }
 a:visited { color: #006600; }
 a:active { color: #0066ff; }
 
-#menu{
+table{
+	margin-right:auto;
+	margin-left:auto;
+	table-layout:fixed;
+}
+
+.nowrap{
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+/* 新規発言等のリンク */
+
+.menu{
 	text-align: center;
+}
+
+/* 一覧のページ */
+
+#index_table{
+	line-height: normal;
+	font-size: 13px;
+	border:1px solid;
+	border-collapse: collapse;
+	border-color:#eeeeee;
+	width:532px;
+}
+
+#index_table tr td{
+	border:1px solid;
+	border-color:#eeeeee;
+}
+
+#table_header td{
+	background-color:#000000;
+}
+
+#table_header td span{
+	color:#ffffff;
+}
+
+#number{
+	
+}
+
+#title{
+	/*text-overflow: ellipsis;*/
+	width:337px;
+}
+
+#name{
+	/*text-overflow: ellipsis;*/
+	width:4em;
+}
+
+#time{
+	width:36px;
+}
+
+#etc{
+	width:auto;
+}
+
+/* 各記事のページ /log/No */
+
+#article table{
+	font-size:13px;
+	width:500px;
+}
+
+#art_header{
+	font-size:large;
+	background-color:#E0E0E0;
+}
+
+#related_remark table{
+	font-size:13px;
+	width:500px;
+}
+
+/* 投稿・返信フォーム */
+
+#submission{
+	margin: 16px 40px;
+}
+
+#re_sub{
+	margin: 16px 40px;
 }

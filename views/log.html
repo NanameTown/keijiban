@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>掲示板</title>
+		<link rel="stylesheet" href="../css/ui.css">
+	</head>
+
+	<body>
+		<div id="header">
+			<h2>電算部員専用掲示板</h2>
+			<div class="menu">
+				<a href="/new">新規発言</a> | 
+				<a href="/">一覧</a> | 
+				<a href="/newlogs">最新記事</a> | 
+				<a href="http://team.densan.info/">部員専用ページTOPへ</a>
+			</div>
+		</div>
+		
+		<div id="article">
+			<table>
+				{{#item}}
+				<tr id="art_header">
+					<td><b>No.{{numb}}　{{title}}</b></td>
+				</tr>
+				<tr>
+					<td>
+					発言者：　<b>{{name}}</b><br>
+					発言日：　<b>{{#time}}{{_year}} {{_month}}/{{_day}} {{_hour}}：{{_minute}}{{/time}}</b><br>
+					発言元：　{{address}}<br>
+					</td>
+				</tr>
+				<tr>
+					<td><br>{{{remark}}}</td>
+				</tr>
+				{{/item}}
+			</table>
+		</div>
+		<hr>
+		<div id="related_remark">
+			<table>
+				<tr>
+					<td>▼関連発言</td>
+				</tr>
+			</table>
+		</div>
+		<hr>
+		<div id="re_sub">
+			<table>
+				{{#item}}
+				<tr>
+					<td>返信フォーム</td>
+					<td>　[<a href="{{numb}}?hen=1#re_sub">引用</a>]</td>
+				</tr>
+				<form method="post">
+
+				<tr>
+					<td bgcolor="#E0E0E0">名　前</td><td><input type="text" size="30" name="name"></td>
+				</tr>
+				<tr>
+					<td bgcolor="#E0E0E0">題　名</td><td><input type="text" size="40" name="title" value="Re:{{title}}"></td>
+				</tr>
+				<tr>
+					<td bgcolor="#E0E0E0">発　言</td><td><textarea name=remark rows=10 cols=55>{{#quote_flag}}{{quote}}{{/quote_flag}}</textarea></td>
+				</tr>
+				<tr>
+					<td bgcolor="#E0E0E0">書き込む</td><td><input type="submit" value="書き込む"></td>
+				</tr>
+
+				</form>
+				{{/item}}
+			</table>
+		</div>
+		<hr>
+		<script src="/js/jquery.js"></script>
+		<script src="/js/ui.js"></script>
+	</body>
+</html>

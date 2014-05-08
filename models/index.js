@@ -1,74 +1,82 @@
 var mongoose = require("mongoose");
 
-module.exports = function(url){
+var db = mongoose.connect("localhost");
 
-	var db = mongoose.connect(url);
-
+var Time = mongoose.Schema({
+	fulltime: Date,
+	_year: Number,
+	_month: String,
+	_day: String,
+	_hour: String,
+	_minute: String
 });
 
-var UserSchema = mongoose.Schema({
-	id:{
-		type: String,
-		index:{unique:true},
-		required:true
-	},
-	name: {
-		type: String,
-		required:true
-	}
+var BoardSchema = mongoose.Schema({
+	numb: Number,
+	name: String,
+	title: String,
+	remark: String,
+	pw: String,
+	rekind: String,
+	address: String,
+	time: [Time]
 });
 
-var User = mongoose.model('User',UserSchema);
+var Board = mongoose.model("Board", BoardSchema);
 
-exports.create = function(id,name,callback){
-	
-	var user = new User({
-		id:id,
-		name:name
+exports.create = function(name,title,remark,pw,rekind,address,callback){
+
+	var board = new Board({
+		name:name,
+		title:title,
+		remark:remark,
+		pw:pw,
+		rekind:rekind,
+		address:address,
 	});
 
-	user.save(function(err,user){
+	Board.find({},function(err,res){
 		if(err){
-			console.error(err);
+			return console.error(err);
 		}
-		callback && callback(err,user);
-	});
-};
-
-exports.read = function(id,callback){
-	User.findOne(function(err,users){
-		if(err){
-			console.error(err);
-		}
-		callback(err,users);
-	});
-};
-
-exports.update = function(id,name,callback){
-	User.findOne({id:id},function(err,user){
-		if(err){
-			console.error(err);
-		}
-		user.name = name;
-		user.save(function(err,user){
+		board.numb = res.length+1;
+		board.time.push({
+			fulltime:new Date(),
+			_year:(new Date).getFullYear(),
+			_month:ZeroPadding((new Date).getMonth()+1),
+			_day:ZeroPadding((new Date).getDate()),
+			_hour:ZeroPadding((new Date).getHours()),
+			_minute:ZeroPadding((new Date).getMinutes())
+		});
+		board.save(function(err,board){
 			if(err){
-				console.error(err);
+				return console.error(err);
 			}
-			callback && callback(err,user);
+			callback && callback(err,board);
 		});
 	});
 };
 
-exports.delete = function(id,callback){
-	User.findOne({id:id},function(err,user){
+exports.find = function(numb,callback){
+
+	Board.find({numb:numb.numb},function(err,res){
 		if(err){
-			console.errer(err);
+			return console.error(err);
 		}
-		user.remove(function(err){
-			if(err){
-				console.error(err);
-			}
-			callback && callback(err);
-		});
+		callback && callback(err,res);
 	});
 };
+
+exports.findAll = function(req,callback){
+
+	Board.find({},function(err,res){
+		if(err){
+			return console.error(err);
+		}
+		callback && callback(err,res);
+	});
+};
+
+function ZeroPadding(n){
+	return (String(n).length<2?"0"+n:String(n));
+}

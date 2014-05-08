@@ -8,19 +8,30 @@
 
 	<body>
 		<h2>電算部員専用掲示板</h2>
-		<div id="menu">
+		<div class="menu">
 			<a href="/new">新規発言</a> | 
 			<a href="/">一覧</a> | 
-			<a href="/newlogs">最新記事</a>
+			<a href="/newlogs">最新記事</a> | 
+			<a href="http://team.densan.info/">部員専用ページTOPへ</a>
 		</div>
-		<form method="post">
-		名前<input type="text" name="name"><br>
-		題名<input type="text" name="title"><br>
-		発言<input type="text" name="remark"><br>
-		書き込む<input type="submit" value="書き込む"><br>
-		<span>{{ name }}</span><br>
-		<span>{{ title }}</span><br>
-		<span>{{ remark }}</span><br>
+		<table id="index_table">
+			<tr id="table_header">
+				<td id="number"><span>No</span></td>
+				<td id="title"><span>Title</span></td>
+				<td id="name"><span>Name</span></td>
+				<td id="time"><span>Date</span></td>
+				<td id="etc"><span>etc</span></td> 
+			</tr>
+			{{#item}} {{! For loop }}
+			<tr>
+				<td>{{ numb }}</td>
+				<td><div class="nowrap"><a href="/log/{{numb}}">{{ title }}</a></div></td>
+				<td><div class="nowrap">{{ name }}</div></td>
+				<td>{{#time}}{{ _month }}/{{ _day }}{{/time}}</td>
+				<td>{{rekind}}</td>
+			</tr>
+			{{/item}}
+		</table>
 		<hr>
 		<script src="/js/jquery.js"></script>
 		<script src="/js/ui.js"></script>

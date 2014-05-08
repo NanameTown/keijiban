@@ -78,5 +78,5 @@ exports.findAll = function(req,callback){
 };
 
 function ZeroPadding(n){
-	return (String(n).length<2?"0"+n:String(n));
+	return (String(n).length<2 ? "0"+n : String(n));
 }

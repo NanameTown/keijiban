@@ -51,9 +51,9 @@ module.exports = function(){
 		var name = XSS(req.body.name);
 		var title = XSS(req.body.title);
 		var remark = NewLine(XSS(req.body.remark));
-		var pw = XSS(req.body.pw);
-		var rekind = req.body.select
-		var address = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+		var pw = req.body.pw;
+		var rekind = req.body.select;
+		var address = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
 		if(name && title && remark){
 			Board.create(name,title,remark,pw,rekind,address,function(err,board){

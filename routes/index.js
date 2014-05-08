@@ -1,4 +1,4 @@
-var Board = require("../models");
+var models = require("../models");
 
 function XSS(str){
 	return str.replace(/&/g,"&amp;")
@@ -20,7 +20,7 @@ module.exports = function(){
 	
 	this.get("/",function(req,res){
 
-		Board.findAll({},function(err,item){
+		models.Board.findAll({},function(err,item){
 			res.render("index",{ item:item });
 		});
 	
@@ -33,7 +33,7 @@ module.exports = function(){
 	});*/
 
 	this.get("/log/:id",function(req,res){
-		Board.find({numb:req.params.id},function(err,item){
+		models.Board.find({numb:req.params.id},function(err,item){
 			res.render("log",{
 				item:item,
 				quote:QuoteSymbol(item[0].remark),
@@ -56,7 +56,7 @@ module.exports = function(){
 		var address = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
 		if(name && title && remark){
-			Board.create(name,title,remark,pw,rekind,address,function(err,board){
+			models.Board.create(name,title,remark,pw,rekind,address,function(err,board){
 				if(err){
 					return console.log(err);
 				}
